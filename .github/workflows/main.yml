@@ -6,9 +6,9 @@ name: Build CI
 # events but only for the master branch
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -31,6 +31,12 @@ jobs:
         with:
     # jmeter test plan to execute
           test-plan-path: './example_demo.jmx '
+      - name: Upload Results
+        uses: actions/upload-artifact@v3
+        with:
+            name: jmeter-results
+            path: result.jtl
+            if-no-files-found: error          
    
           
         
