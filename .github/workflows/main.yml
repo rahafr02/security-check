@@ -29,7 +29,7 @@ jobs:
         uses: QAInsights/PerfAction@2.0
         with:
     # jmeter test plan to execute
-          test-plan-path: './example.jmx'
+          test-plan-path: './HTTP Request.jmx'
       - name: Upload Results
         uses: actions/upload-artifact@v3
         with:
